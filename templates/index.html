@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>NSP Chatbot</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="chat-wrapper">
+
+    <!-- HEADER -->
+    <div class="chat-header">
+
+        <div>
+            <h1>🤖 NSP Chatbot</h1>
+            <p>Your AI Assistant</p>
+        </div>
+
+        <!-- HISTORY BUTTON -->
+        <button class="history-btn"
+        onclick="toggleHistory()">
+            📜 History
+        </button>
+
+    </div>
+
+
+    <!-- CHAT BOX -->
+    <div id="chat-box" class="chat-box"></div>
+
+
+    <!-- INPUT AREA -->
+    <div class="input-area">
+
+
+        <!-- ATTACHMENT BUTTON LEFT -->
+        <button class="attach-btn"
+        onclick="document.getElementById('file-input').click()">
+            📎
+        </button>
+
+
+        <!-- FILE INPUT -->
+        <input type="file"
+        id="file-input"
+        hidden>
+
+
+        <!-- VOICE BUTTON -->
+        <button onclick="startVoice()">
+            🎤
+        </button>
+
+
+        <!-- USER INPUT -->
+        <input type="text"
+        id="user-input"
+        placeholder="Ask anything...">
+
+
+        <!-- SEND BUTTON -->
+        <button class="send-btn"
+        onclick="sendMessage()">
+            Send
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- HISTORY PANEL -->
+<div id="history-panel" class="history-panel">
+
+    <!-- CLOSE BUTTON -->
+    <div class="close-history"
+    onclick="toggleHistory()">
+        ➜
+    </div>
+
+
+    <div class="history-header">
+
+        <h2>Search History</h2>
+
+        <button onclick="deleteAllHistory()">
+            Delete All
+        </button>
+
+    </div>
+
+
+    <!-- HISTORY LIST -->
+    <div id="history-list"></div>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
